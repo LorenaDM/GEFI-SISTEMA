@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="Login.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script>
+            function verifica(){
+                let usuario = document.getElementById("usuario").value
+                let senha = document.getElementById("senha").value
+
+                let login = new Object()
+                login.user = usuario
+                login.password = senha
+
+                let request = new XMLDocument()
+                request.open('HEAD', "http://localhost:8080/login", true)
+                request.onload = function(){
+                    if((request.status >= 200) && (request.status <= 400)){
+                        console.log('conexão')
+                    }
+                    else{
+                        console.log('erro de conexao')
+                    }
+
+                }
+                request.send()
+            }
+        </script>
+        <title>GEFI :: LOGIN</title>
+    </head>
+    <body>
+        <div class="background">
+            <img src="login.jpg" alt="">
+                    
+        </div>
+       
+        <div class = "chamada">
+            <h1>Bem vindo(a) ao GEFI, faça o seu login...</h1>
+        </div>
+    
+        
+        <div class ="container">           
+            <div class="FormsLogin">
+                <h2>LOGIN</h2>     
+                <form action="">
+                    <div class = "Inputs">
+                        <input type="text" placeholder="Usuário">
+                        
+                        <input type="text" placeholder="Senha">
+                    </div>
+                   
+                    
+                    <div class="botao">
+                        <button type="button" class="btn btn-dark">Enviar</button>
+                    </div>
+                </form>
+                
+            </div>
+               
+        </div>
+        
+    
+          
+        
+    
+    </body>
+    </html>  
